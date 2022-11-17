@@ -129,7 +129,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'sub_app', 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'sub_app', 'media')
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://ec2-18-134-143-167.eu-west-2.compute.amazonaws.com']
+CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://ec2-18-134-143-167.eu-west-2.compute.amazonaws.com',
+                        'http://18.134.143.167']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
