@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="about">
+        <h2>{{movie.title}}</h2>
+        <div class="description">
+            <div class="img"><img src="{{movie.imageURL}}" alt=""></div>
+            <div class="info">
+                <div class="flex">
+                    <h4>Rating:</h4>
+                    <span>{{movie.rating}}</span>
+                </div>
+                <div class="flex">
+                    <h4>Date Posted:</h4>
+                    <span>{{movie.date}}</span>
+                </div>
+                <div class="flex">
+                    <h4>Country:</h4>
+                    <span>{{movie.country}}</span>
+                </div>
+                <div class="flex">
+                    <h4>Genres:</h4>
+                    <div class="genres">
+                        {% for g in movie.genres.all %}
+                        <a href="">{{g.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="flex">
+                    <h4>Time:</h4>
+                    <span>{{movie.time}} minutes</span>
+                </div>
+                <div class="flex">
+                    <h4>Actors:</h4>
+                    <span>
+                        {% for a in movie.actors.all %}
+                            {{ a.name }},
+                        {% endfor %}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="description-film">
+            <h4>What about {{movie.title}}:</h4>
+            <p>{{movie.description}}</p>
+        </div>
+        <div class="video">
+            <iframe width="560" height="315" src="{{movie.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="wrap"></div>
+        <div class="container">
+            <div class="back"><a href="{% url 'home' %}">&lt;Back</a></div>
+            <div class="icon">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+            <div class="title">
+                <h5>Register</h5>
+            </div>
+            <form class="form" action="" method="post">
+                {% csrf_token %}
+                <div class="input">
+                    <div class="input-icon"><i class="fa-solid fa-user"></i></div>
+                    {{ form.username }}
+                </div>
+                <div class="border"></div>
+                <div class="input">
+                    <div class="input-icon"><i class="fa-solid fa-envelope"></i></div>
+                    {{ form.email }}
+                </div>
+                <div class="border"></div>
+                <div class="input">
+                    <div class="input-icon"><i class="fa-solid fa-key"></i></div>
+                    {{ form.password1 }}
+                </div>
+                <div class="border"></div>
+                <div class="input">
+                    <div class="input-icon"><i class="fa-solid fa-key"></i></div>
+                    {{ form.password2 }}
+                </div>
+                <div class="border"></div>
+                <div class="login">
+                    <button class="submit" type="submit">Register</button>
+                </div>
+                <div class="signup">
+                    <a href="{% url 'login' %}">LOG IN</a>
+                </div>
+            </form>
+            {{ form.errors }}
+        </div>
+    </div>
+
+    <script>
+        var formInput = document.getElementsByTagName('input');
+        formInput[1].placeholder = 'username..';
+        formInput[2].placeholder = 'email..';
+        formInput[3].placeholder = 'password..';
+        formInput[4].placeholder = 're-enter password..';
+
+        for(var input in formInput){
+            formInput[input].classList.add('text')
+        }
+
+    </script>
+</body>
+</html>

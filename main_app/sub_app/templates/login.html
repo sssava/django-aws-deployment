@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="wrap"></div>
+        <div class="container">
+            <div class="back"><a href="{% url 'home' %}">&lt;Back</a></div>
+            <div class="icon">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+            <div class="title">
+                <h5>Log In</h5>
+            </div>
+            <form class="form" action="" method="post">
+                {% csrf_token %}
+                <div class="input">
+                    <div class="input-icon"><i class="fa-solid fa-user"></i></div>
+                    <input type="text" class="text" name="username" placeholder="username..">
+                </div>
+                <div class="border"></div>
+                <div class="input">
+                    <div class="input-icon"><i class="fa-solid fa-key"></i></div>
+                    <input type="password" class="text" name="password" placeholder="password..">
+                </div>
+                <div class="border"></div>
+                <div class="forgot"><a href="{% url 'reset_password' %}">Forgot a password?</a></div>
+                <div class="login">
+                    <button class="submit" type="submit">Log in</button>
+                </div>
+                <div class="signup">
+                    <a href="{% url 'register' %}">register</a>
+                </div>
+            </form>
+            {% for message in messages %}
+                <p id="messages">{{ message }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

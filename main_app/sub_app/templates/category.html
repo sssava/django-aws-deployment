@@ -6,7 +6,7 @@
         {% for movie in movies %}
             <div class="container">
               <div class="movie">
-                  <a href="/movie/{{movie.slug}}"><img src="{{movie.imageURL}}" alt="{{movie.title}}"></a>
+                  <img src="{{movie.imageURL}}" alt="{{movie.title}}">
               </div>
               <div class="movie-info">
                   <a href="/movie/{{movie.slug}}">{{movie.title}}</a>
@@ -17,7 +17,6 @@
                       {% else %}
                       <a id="aaa" href="http://127.0.0.1:8000/login/"><i class="fa-regular fa-heart" data-id="{{movie.id}}"></i></a>
                       {% endif %}
-                  </div>
               </div>
             </div>
         {% endfor %}
